@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة المعلم | TestJoy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="teacher.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TestJoy</a>
+            </div>
+            <div class="nav-links">
+                <a href="my-exams.html" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    اختباراتي
+                </a>
+              
+                </a>
+                <a href="teacher-settings.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    الإعدادات
+                </a>
+                <button class="logout-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-sign-out-alt"></i>
+                    تسجيل خروج
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="teacher-welcome">
+            <div class="welcome-header">
+                <h1>مرحباً بك في لوحة تحكم المعلم</h1>
+                <p>ابدأ رحلتك في التعليم والتأثير في حياة الطلاب</p>
+            </div>
+        </section>
+
+        <section class="teacher-dashboard">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>الاختبارات</h3>
+                    <p>0 اختبار</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-users"></i>
+                    <h3>المتعلمين</h3>
+                    <p>0 متعلم</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-star"></i>
+                    <h3>التقييم</h3>
+                    <p>0.0</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="exam-panel">
+            <form id="examForm" class="exam-form">
+                <div class="exam-header">
+                    <h2 id="formTitle">إضافة اختبار جديد</h2>
+                    <select class="category-select" id="examCategory" name="examCategory" required>
+                        <option value="">اختر الفئة</option>
+                        <option value="programming">برمجة</option>
+                        <option value="languages">لغات</option>
+                        <option value="math">رياضيات</option>
+                        <option value="science">علوم</option>
+                        <option value="technology">تقنية</option>
+                        <option value="engineering">هندسة</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="examTitle">عنوان الاختبار</label>
+                    <input type="text" id="examTitle" name="examTitle" placeholder="أدخل عنوان الاختبار" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="examDescription">وصف الاختبار</label>
+                    <textarea id="examDescription" name="examDescription" rows="4" placeholder="أدخل وصف الاختبار" required></textarea>
+                </div>
+            
+                <div class="form-group">
+                    <label>صورة الغلاف</label>
+                    <div class="cover-upload" id="coverUpload">
+                        <input type="file" id="coverInput" name="coverImage" accept="image/*">
+                        <img id="coverPreview" style="display: none; max-width: 200px;">
+                        <i class="fas fa-image"></i>
+                        <p>اضغط لرفع صورة الغلاف</p>
+                    </div>
+                </div>
+            
+                <div class="questions-section">
+                    <div class="questions-header">
+                        <h3>الأسئلة</h3>
+                    </div>
+                    <div id="questionsContainer" class="questions-container">
+                        <!-- Questions will be added here dynamically -->
+                    </div>
+                    <button type="button" id="addQuestionBtn" class="add-question-btn">
+                        <i class="fas fa-plus"></i>
+                        إضافة سؤال جديد
+                    </button>
+                </div>
+            
+                <button type="submit" class="create-exam-btn" id="submitExamBtn">
+                    <i class="fas fa-check"></i>
+                    <span id="submitBtnText">إنشاء الاختبار</span>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="teacher.js"></script>
+</body>
+</html>

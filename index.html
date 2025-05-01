@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestJoy - منصة التحديات التعليمية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TestJoy</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">الرئيسية</a>
+                <a href="contact.html">التواصل</a>
+            </div>
+            <div class="auth-buttons">
+                    <a href="login.html" class="login-btn">تسجيل الدخول</a>
+                    <div class="dropdown">
+                        <button class="signup-btn" id="signupDropdown">انضم الآن!</button>
+                        <div class="dropdown-content">
+                            <a href="teacher-register.html">انضم كمعلم</a>
+                            <a href="student-register.html">انضم كمتعلّم</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>ابدأ رحلتك التعليمية <br>مع تحديات تفاعلية <i class="fas fa-gamepad"></i></h1>
+                <p>منصة تعليمية تجمع بين المتعة والتعلّم من خلال تحديات وألعاب تعليمية</p>
+                <div class="hero-buttons">
+                    <div class="dropdown">
+                        <a href="student-register.html" class="cta-btn primary-btn">انضم الآن</a>
+                    </div>
+                    <button onclick="scrollToBottom()" class="cta-btn secondary-btn">اكتشف المزيد</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section class="messages">
+            <div class="message success">
+                <i class="fas fa-check-circle"></i>
+                <p>مرحباً بك في TestJoy! نحن سعداء بانضمامك إلى مجتمعنا التعليمي</p>
+            </div>
+            <div class="message info">
+                <i class="fas fa-info-circle"></i>
+                <p>اكتشف أحدث التحديات التعليمية وشارك في المسابقات الأسبوعية</p>
+            </div>
+            <div class="message warning">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>لا تنسَ تحديث ملفك الشخصي للحصول على تجربة مخصصة</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>1000+</h3>
+                    <p>متعلم مسجل</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>500+</h3>
+                    <p>تحدي منجز</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>95%</h3>
+                    <p>معدل النجاح</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews">
+            <h2>آراء المتعلمين</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h4>أحمد القحطاني</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>منصة رائعة ساعدتني في تطوير مهاراتي بطريقة ممتعة وفعالة</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="user-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h4>ناصر العتيبي</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>تجربة تعليمية فريدة مع محتوى متنوع ومفيد</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>محمد السالم</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>أفضل منصة تعليمية جربتها حتى الآن</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>فارس المالكي</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>المنصة ساعدتني في تطوير مهاراتي بشكل كبير</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>عبدالله العمري</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>تجربة تعليمية مميزة وفريدة من نوعها</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>حمد السعيد</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>محتوى تعليمي عالي الجودة ومفيد جداً</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>فهد الدوسري</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>التحديات التعليمية ممتعة ومفيدة جداً</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>صالح الزهراني</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>أسلوب تعليمي مبتكر وجذاب</p>
+                </div>
+
+                <div class="review-card">
+                    <img src="https://via.placeholder.com/50" alt="صورة المستخدم" class="avatar">
+                    <h4>سلطان القاسم</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>منصة رائعة للتعلم والتطور</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>TestJoy</h3>
+                    <p>منصة تعليمية تفاعلية تجمع بين المتعة والتعلم</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="#">المنصة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@testjoy.com</li>
+                        <li><i class="fas fa-phone"></i> +966 50 000 0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2024 TestJoy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

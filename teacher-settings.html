@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعدادات الحساب</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/teacher-settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-right">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+            </div>
+            <div class="nav-left">
+                <a href="my-exams.html" class="nav-btn">
+                    <i class="fas fa-chevron-right"></i>
+                    <span>العودة للاختبارات</span>
+                </a>
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="settings-container">
+        <!-- رسالة العرض فقط -->
+     
+
+        <!-- بطاقة المعلومات الشخصية -->
+        <div class="settings-card">
+            <div class="card-header">
+                <div class="header-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2>المعلومات الشخصية</h2>
+            </div>
+            <form id="profileForm" class="settings-form">
+                <div class="form-group">
+                    <label for="fullName">
+                        <i class="fas fa-user"></i>
+                        الاسم الكامل
+                    </label>
+                    <input type="text" id="fullName" name="fullName" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">
+                        <i class="fas fa-graduation-cap"></i>
+                        التخصص
+                    </label>
+                    <input type="text" id="specialization" name="specialization" readonly>
+                </div>
+            </form>
+        </div>
+
+        <!-- بطاقة معلومات الحساب -->
+        <div class="settings-card">
+            <div class="card-header">
+                <div class="header-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h2>معلومات الحساب</h2>
+            </div>
+            <form id="accountForm" class="settings-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        البريد الإلكتروني
+                    </label>
+                    <input type="email" id="email" name="email" readonly>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="teacher-settings.js"></script>
+</body>
+</html>

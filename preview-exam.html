@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معاينة الاختبار | TestJoy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="preview-exam.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="preview-container">
+        <div class="preview-header">
+            <div class="cover-image">
+                <img id="examCover" src="" alt="صورة الغلاف">
+            </div>
+            <div class="exam-info">
+                <h1 id="examTitle"></h1>
+                <p id="examDescription"></p>
+                <div class="exam-meta">
+                    <span id="examCategory"></span>
+                    <span id="questionCount"></span>
+                </div>
+            </div>
+            <div class="preview-actions">
+                <button onclick="window.location.href='my-exams.html'" class="back-btn">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للاختبارات
+                </button>
+                <button onclick="window.location.href='teacher.html?edit=' + new URLSearchParams(window.location.search).get('preview')" class="edit-btn">
+                    <i class="fas fa-edit"></i>
+                    تعديل الاختبار
+                </button>
+                <button onclick="deleteExam()" class="delete-btn">
+                    <i class="fas fa-trash"></i>
+                    حذف الاختبار
+                </button>
+            </div>
+        </div>
+
+        <div class="questions-preview" id="questionsContainer">
+            <!-- سيتم إضافة الأسئلة هنا -->
+        </div>
+    </div>
+
+    <script src="preview-exam.js"></script>
+</body>
+</html>

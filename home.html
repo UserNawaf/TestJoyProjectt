@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestJoy - الرئيسية</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo.png" alt="TestJoy" class="logo">
+            <h2>TestJoy</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="advisor.html" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>مستشارك الشخصي</span>
+            </a>
+            <a href="account.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>حسابي</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>التحليلات</span>
+            </a>
+            <a href="leaderboard.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>المتصدرين</span>
+            </a>
+            <a href="terms.html" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                <span>الشروط</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="index.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل خروج</span>
+            </a>
+        </div>
+
+        </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- قسم الترحيب الرئيسي -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>مرحباً بك في TestJoy</h1>
+                <p class="hero-description">نحن هنا لنجعل رحلة تعلمك أكثر متعة وإثارة</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-stat="points">0</span>
+                        <span class="stat-label">نقطة</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-stat="rank">#--</span>
+                        <span class="stat-label">ترتيبك</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="features-section">
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h2>تعلم بذكاء</h2>
+                <p>نظام ذكي يتكيف مع مستواك ويساعدك على التطور</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+                <h2>نافس وتفوق</h2>
+                <p>تنافس مع زملائك وحقق أعلى المراتب</p>
+            </div>
+        </section>
+
+        <!-- قسم التحفيز -->
+        <section class="motivation-section">
+            <div class="motivation-content">
+                <h2>جاهز لتبدأ رحلتك؟</h2>
+                <p>كل خطوة تقربك من هدفك. ابدأ الآن وكن من المتميزين!</p>
+                <button class="cta-button">
+                    <span>ابدأ التحدي</span>
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- قسم الفئات (تم نقله هنا) -->
+        <section class="categories-section">
+            <div class="categories-container">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i> الكل
+                </button>
+                <button class="category-btn" data-category="programming">
+                    <i class="fas fa-code"></i> برمجة
+                </button>
+                <button class="category-btn" data-category="languages">
+                    <i class="fas fa-language"></i> لغات
+                </button>
+                <button class="category-btn" data-category="math">
+                    <i class="fas fa-square-root-alt"></i> رياضيات
+                </button>
+                <button class="category-btn" data-category="science">
+                    <i class="fas fa-flask"></i> علوم
+                </button>
+                <button class="category-btn" data-category="technology">
+                    <i class="fas fa-microchip"></i> تقنية
+                </button>
+                <button class="category-btn" data-category="engineering">
+                    <i class="fas fa-cogs"></i> هندسة
+                </button>
+            </div>
+        </section>
+
+        <!-- قسم الاختبارات -->
+        <!-- قسم الاختبارات -->
+<section class="exam-cards">
+    <div class="exam-cards-container">
+        <!-- سيتم إضافة البطاقات هنا عبر JavaScript -->
+    </div>
+    <div class="loading-exams">
+        <i class="fas fa-spinner fa-spin"></i>
+        جاري تحميل الاختبارات...
+    </div>
+    <div class="no-exams" style="display: none;">
+        <i class="fas fa-clipboard-list"></i>
+        <h3>لا توجد اختبارات متاحة حالياً</h3>
+    </div>
+</section>
+
+    </main>
+    <script src="home.js"></script>
+</body>
+</html>

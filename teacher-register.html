@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل معلم جديد | TestJoy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TestJoy</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">الرئيسية</a>
+            </div>
+            <div class="auth-buttons">
+                <div class="auth-buttons">
+                    <a href="login.html" class="login-btn">تسجيل الدخول</a>
+                    <div class="dropdown">
+                        <button class="signup-btn" id="signupDropdown">انضم الآن!</button>
+                        <div class="dropdown-content">
+                            <a href="teacher-register.html">انضم كمعلم</a>
+                            <a href="student-register.html">انضم كمتعلّم</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>تسجيل حساب معلم جديد</h1>
+                    <p>انضم إلى مجتمع المعلمين في TestJoy</p>
+                </div>
+
+                <form id="teacherRegistrationForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="fullName">الاسم الكامل</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">التخصص</label>
+                        <div class="input-group">
+                            <i class="fas fa-graduation-cap"></i>
+                            <input type="text" id="specialization" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cv">السيرة الذاتية (اختياري)</label>
+                        <div class="input-group file-input">
+                            <i class="fas fa-file-pdf"></i>
+                            <input type="file" id="cv" accept=".pdf,.doc,.docx">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="linkedin">رابط LinkedIn (اختياري)</label>
+                        <div class="input-group">
+                            <i class="fab fa-linkedin"></i>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="auth-btn">
+                        <span>إنشاء حساب</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>TestJoy</h3>
+                    <p>منصة تعليمية تفاعلية تجمع بين المتعة والتعلم</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@testjoy.com</li>
+                        <li><i class="fas fa-phone"></i> +966 50 000 0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2024 TestJoy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+
+    <script>
+        // Your Firebase Configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyByT4A26ibE-L35_yBXPqQcJAAycsHfs1A",
+
+        authDomain: "testjoy-2958c.firebaseapp.com",
+        projectId: "testjoy-2958c",
+        storageBucket: "testjoy-2958c.firebasestorage.app",
+        messagingSenderId: "1013945106894",
+        appId: "1:1013945106894:web:75b21f6534c21786786b9f",
+        measurementId: "G-QM2Y6ZN8SX"
+
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+
+        // Teacher Registration Form Handler
+        document.getElementById('teacherRegistrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const specialization = document.getElementById('specialization').value;
+            const linkedin = document.getElementById('linkedin').value;
+            const cvFile = document.getElementById('cv').files[0];
+
+            try {
+                // Create user account
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+
+                // Upload CV if exists
+                let cvUrl = '';
+                if (cvFile) {
+                    const storageRef = storage.ref(`teachers/${user.uid}/cv/${cvFile.name}`);
+                    const uploadTask = await storageRef.put(cvFile);
+                    cvUrl = await uploadTask.ref.getDownloadURL();
+                }
+
+                // Save teacher data
+                await db.collection('teachers').doc(user.uid).set({
+                    fullName,
+                    email,
+                    specialization,
+                    linkedin: linkedin || '',
+                    cvUrl: cvUrl || '',
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    role: 'teacher',
+                    approved: false
+                });
+
+                alert('تم التسجيل بنجاح! سيتم مراجعة طلبك من قبل الإدارة');
+                window.location.href = 'teacher.html';
+            } catch (error) {
+                console.error('Error:', error);
+                let errorMessage = 'حدث خطأ أثناء التسجيل';
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'البريد الإلكتروني مستخدم مسبقاً';
+                        break;
+                    case 'auth/weak-password':
+                        errorMessage = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+                        break;
+                }
+                alert(errorMessage);
+            }
+        });
+
+        // Password Visibility Toggle
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                const passwordInput = e.target.previousElementSibling;
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                e.target.classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
+</body>
+</html>

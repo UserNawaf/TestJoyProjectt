@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل طالب جديد | TestJoy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- نفس البار العلوي -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TestJoy</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">الرئيسية</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">تسجيل الدخول</a>
+                <div class="dropdown">
+                    <button class="signup-btn" id="signupDropdown">انضم الآن!</button>
+                    <div class="dropdown-content">
+                        <a href="teacher-register.html">انضم كمعلم</a>
+                        <a href="student-register.html">انضم كمتعلّم</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>تسجيل حساب متعلم جديد</h1>
+                    <p>انضم إلى مجتمع التعلم في TestJoy</p>
+                </div>
+
+                <form id="studentRegistrationForm" class="auth-form">
+                    <!-- نفس حقول النموذج -->
+                    <div class="form-group">
+                        <label for="fullName">الاسم الكامل</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال</label>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="05xxxxxxxx" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="********" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">الدرجة العلمية</label>
+                        <div class="input-group">
+                            <i class="fas fa-graduation-cap"></i>
+                            <select id="education" name="education" required>
+                                <option value="">اختر الدرجة العلمية</option>
+                                <option value="high_school">ثانوية عامة</option>
+                                <option value="diploma">دبلوم</option>
+                                <option value="bachelor">بكالوريوس</option>
+                                <option value="master">ماجستير</option>
+                                <option value="phd">دكتوراه</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="terms-label">
+                            <input type="checkbox" required>
+                            أوافق على <a href="#" class="terms-link">الشروط والأحكام</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="primary-btn submit-btn">
+                        <span>إنشاء حساب</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- نفس الفوتر -->
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyByT4A26ibE-L35_yBXPqQcJAAycsHfs1A",
+
+authDomain: "testjoy-2958c.firebaseapp.com",
+
+projectId: "testjoy-2958c",
+
+storageBucket: "testjoy-2958c.firebasestorage.app",
+
+messagingSenderId: "1013945106894",
+
+appId: "1:1013945106894:web:75b21f6534c21786786b9f",
+
+measurementId: "G-QM2Y6ZN8SX"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Student Registration Handler
+        document.getElementById('studentRegistrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const education = document.getElementById('education').value;
+
+            try {
+                // Create user account
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+
+                // Save student data to Firestore
+                await db.collection('students').doc(user.uid).set({
+                    fullName,
+                    email,
+                    phone,
+                    education,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    role: 'student',
+                    progress: {},
+                    completedCourses: []
+                });
+
+                alert('تم تسجيل الحساب بنجاح!');
+                window.location.href = 'home.html';
+            } catch (error) {
+                console.error('Error:', error);
+                let errorMessage = 'حدث خطأ أثناء التسجيل';
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        errorMessage = 'البريد الإلكتروني مستخدم مسبقاً';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'بريد إلكتروني غير صالح';
+                        break;
+                    case 'auth/weak-password':
+                        errorMessage = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage = 'خطأ في الاتصال بالشبكة';
+                        break;
+                }
+                alert(errorMessage);
+            }
+        });
+
+        // Password Visibility Toggle
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                const passwordInput = e.target.previousElementSibling;
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                e.target.classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
+</body>
+</html>

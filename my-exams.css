@@ -1,0 +1,403 @@
+/* تنسيق الصفحة الرئيسية */
+.main-content {
+    max-width: 1200px;
+    margin: 80px auto 2rem;
+    padding: 0 2rem;
+}
+
+/* رأس الصفحة */
+.my-exams-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+    border-radius: 15px;
+}
+
+.my-exams-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.my-exams-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* شبكة الاختبارات */
+.exams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.exam-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.exam-cover {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+
+.exam-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.exam-card:hover .exam-cover img {
+    transform: scale(1.05);
+}
+
+.exam-content {
+    padding: 1.5rem;
+}
+
+.exam-title {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.exam-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    max-height: 3.2em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.exam-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.exam-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.exam-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+}
+
+.exam-actions button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.preview-btn {
+    background: var(--info);
+}
+
+.edit-btn {
+    background: var(--primary);
+}
+
+.delete-btn {
+    background: var(--danger);
+}
+
+.exam-actions button:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+}
+
+/* حالة عدم وجود اختبارات */
+.no-exams {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    gap: 1rem;
+}
+
+.no-exams i {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.no-exams h2 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+.no-exams p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.create-exam-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.create-exam-link:hover {
+    transform: translateY(-2px);
+    filter: brightness(110%);
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 0 1rem;
+        margin-top: 60px;
+    }
+
+    .my-exams-header {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .my-exams-header h1 {
+        font-size: 2rem;
+    }
+
+    .exams-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .exam-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* تنسيق المعاينة */
+.preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.preview-content {
+    background: white;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.preview-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.preview-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.close-preview {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.close-preview:hover {
+    color: var(--danger);
+    transform: scale(1.1);
+}
+
+.preview-body {
+    padding: 2rem;
+}
+
+.preview-question {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.question-number {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.question-type {
+    background: var(--primary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.options-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: not-allowed;
+}
+
+.correct-answer {
+    color: #10b981;
+    margin-left: auto;
+}
+
+.short-answer {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.short-answer p {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
+}
+
+/* التصميم المتجاوب للمعاينة */
+@media (max-width: 768px) {
+    .preview-overlay {
+        padding: 1rem;
+    }
+
+    .preview-content {
+        max-height: 95vh;
+    }
+
+    .preview-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .preview-body {
+        padding: 1rem;
+    }
+
+    .question-text {
+        font-size: 1rem;
+    }
+
+    .option-item {
+        padding: 0.8rem;
+    }
+}
+
+/* تحسين مظهر التمرير */
+.preview-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}

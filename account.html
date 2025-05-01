@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي | TestJoy</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo.png" alt="TestJoy" class="logo">
+            <h2>TestJoy</h2>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </a>
+            <a href="advisor.html" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>مستشارك الشخصي</span>
+            </a>
+            <a href="account.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>حسابي</span>
+            </a>
+        
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>التحليلات</span>
+            </a>
+            <a href="leaderboard.html" class="nav-item">
+                <i class="fas fa-trophy"></i>
+                <span>المتصدرين</span>
+            </a>
+            <a href="terms.html" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                <span>الشروط</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>تسجيل خروج</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="profile-container">
+            <div class="form-section">
+                <div class="section-header">
+                    <h2 class="section-title">المعلومات الشخصية</h2>
+                    <button class="save-button" id="saveButton">
+                        <i class="fas fa-save"></i>
+                        حفظ التغييرات
+                    </button>
+                </div>
+                <form class="form-grid">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" value="Youssef">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" value="ymalwa@gmail.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الجوال</label>
+                        <input type="tel" id="phone" value="0558107055">
+                    </div>
+                    <div class="form-group">
+                        <label for="education">المستوى التعليمي</label>
+                        <input type="text" id="education" value="high_school">
+                    </div>
+                </form>
+            </div>
+
+            <div class="profile-sidebar">
+                <div class="profile-picture">
+                    <img src="avatar.png" alt="الصورة الشخصية" id="profileImage">
+                    <div class="edit-photo">
+                        <label for="uploadImage">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="uploadImage" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <h2 class="profile-name">Youssef</h2>
+                    <p class="profile-role">متعلم</p>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="successRate">90%</div>
+                            <div class="stat-label">معدل النجاح</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalExams">2</div>
+                            <div class="stat-label">عدد الاختبارات</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="dailyExams">2</div>
+                            <div class="stat-label">اختبارات اليوم</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h4>متفوق</h4>
+                            <p>أكملت 50 اختبار</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    
+    <script src="account.js"></script>
+</body>
+</html>
